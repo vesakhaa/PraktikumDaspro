@@ -8,12 +8,14 @@ public class cetakKRS04 {
         System.out.print("Apakah UKT sudah lunas? (true/false): ");
         boolean uktLunas = sc.nextBoolean();
 
-        if (uktLunas){
-            System.out.println("Pembayaran UKT Terverifikasi");
-            System.out.println("Silahkan cetak KRS dan minta tanda tangan DPA");
-        } else{
-            System.out.println("Regulasi ditolak. Silahkan lunasi UKT terlebih dahulu");
-        }
+        // if (uktLunas){
+        //     System.out.println("Pembayaran UKT Terverifikasi");
+        //     System.out.println("Silahkan cetak KRS dan minta tanda tangan DPA");
+        // } else{
+        //     System.out.println("Regulasi ditolak. Silahkan lunasi UKT terlebih dahulu");
+        // }
        
+        System.out.println(uktLunas ? "Pembayaran UKT terverifikasi\nSilahkan Cetak KRS dan minta tanda tangan DPA" : "Regulasi ditolak Silahkan Lunasi UKT terlebih dahulu");
+ 
     }
 }
