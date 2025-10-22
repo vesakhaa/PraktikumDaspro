@@ -42,7 +42,7 @@ public class rentMobilLat4 {
                 double diskon = totalBiaya * 0.05;
                 totalBiaya = totalBiaya - diskon;
             }
-            System.out.println("Biaya yang harus anda bayar adalah: Rp " + totalBiaya);
+            System.out.println("Biaya yang harus anda bayar adalah: Rp " +(int)totalBiaya);
         } else {
             System.out.println("Lama sewa tidak boleh lebih dari 30 hari");
         }
