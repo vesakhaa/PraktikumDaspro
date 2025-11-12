@@ -1,4 +1,4 @@
-package jobSheet06;
+package jobsheet06;
 import java.util.Scanner;
 
 public class rentMobilLat3 {
