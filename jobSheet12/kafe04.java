@@ -4,8 +4,18 @@ import java.util.Scanner;
 public class kafe04 {
 
     public static void main(String[] args) {
-        Menu("Andi", false);
         Scanner sc = new Scanner(System.in);
+
+        System.out.print("Masukkan nama pelanggan: ");
+        String nama = sc.nextLine();
+
+        System.out.print("Apakah Anda member? (true/false): ");
+        boolean isMember = sc.nextBoolean();
+
+        System.out.print("Masukkan kode promo (atau '-' jika tidak ada): ");
+        String kodePromo = sc.next();
+
+        Menu(nama, isMember, kodePromo);
 
         int totalKeseluruhan = 0;
         int pilihanMenu, banyakItem;
@@ -14,7 +24,7 @@ public class kafe04 {
             System.out.print("\nMasukkan nomor menu yang ingin anda pesan (0 untuk selesai): ");
             pilihanMenu = sc.nextInt();
 
-            if (pilihanMenu == 0) { 
+            if (pilihanMenu == 0) {
                 break;
             }
 
@@ -27,12 +37,25 @@ public class kafe04 {
             System.out.println("Subtotal pesanan: Rp." + totalHarga);
         }
 
+        if (isMember) {
+            totalKeseluruhan -= totalKeseluruhan * 10 / 100;
+            System.out.println("Diskon member 10% diterapkan.");
+        }
+
+        if (kodePromo.equalsIgnoreCase("DISKON50")) {
+            totalKeseluruhan -= totalKeseluruhan * 50 / 100;
+            System.out.println("Diskon promo 50% diterapkan.");
+        } else if (kodePromo.equalsIgnoreCase("DISKON30")) {
+            totalKeseluruhan -= totalKeseluruhan * 30 / 100;
+            System.out.println("Diskon promo 30% diterapkan.");
+        }
+
         System.out.println("\n===== Ringkasan Pesanan =====");
         System.out.println("Total keseluruhan pesanan Anda: Rp." + totalKeseluruhan);
     }
 
-    public static void Menu(String namaPelanggan, boolean isMember) {
-        System.out.println("Selamat datang, " + namaPelanggan + "!");
+    public static void Menu(String namaPelanggan, boolean isMember, String kodePromo) {
+        System.out.println("\nSelamat datang, " + namaPelanggan + "!");
 
         if (isMember) {
             System.out.println("Anda adalah member, dapatkan diskon 10% untuk setiap pembelian");
